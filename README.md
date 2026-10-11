@@ -8,7 +8,7 @@ A top-down spaceship horror prototype. Keep the ship running through eight shift
 
 ## Play
 
-The downloadable Mac application is available from [GitHub Releases](https://github.com/knorbay/second-presence/releases). Download the ZIP, extract it in Finder, and move **Second Presence.app** into Applications. Python is not required for the packaged app.
+The downloadable Mac application is available on [itch.io](https://knorbay.itch.io/second-presence), free with optional donations, and from [GitHub Releases](https://github.com/knorbay/second-presence/releases). Download the ZIP, extract it in Finder, and move **Second Presence.app** into Applications. Python is not required for the packaged app.
 
 - Universal Mac build: Apple Silicon and Intel; macOS 11 or later.
 - Runtime tested on an Apple Silicon Mac. Intel binaries and dependencies are checked, but an Intel Mac has not been used for a runtime test.
