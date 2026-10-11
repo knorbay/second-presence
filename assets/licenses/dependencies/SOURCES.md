@@ -1,0 +1,22 @@
+# Pygame dependency license sources
+
+- LICENSE.FLAC.txt: https://raw.githubusercontent.com/pygame/pygame/2.6.1/docs/licenses/LICENSE.FLAC.txt
+- LICENSE.fluidsynth.txt: https://raw.githubusercontent.com/pygame/pygame/2.6.1/docs/licenses/LICENSE.fluidsynth.txt
+- LICENSE.freetype.txt: https://raw.githubusercontent.com/pygame/pygame/2.6.1/docs/licenses/LICENSE.freetype.txt
+- LICENSE.jpeg.txt: https://raw.githubusercontent.com/pygame/pygame/2.6.1/docs/licenses/LICENSE.jpeg.txt
+- LICENSE.modplug.txt: https://raw.githubusercontent.com/pygame/pygame/2.6.1/docs/licenses/LICENSE.modplug.txt
+- LICENSE.mpg123.txt: https://raw.githubusercontent.com/pygame/pygame/2.6.1/docs/licenses/LICENSE.mpg123.txt
+- LICENSE.numpy.txt: https://raw.githubusercontent.com/pygame/pygame/2.6.1/docs/licenses/LICENSE.numpy.txt
+- LICENSE.ogg-vorbis.txt: https://raw.githubusercontent.com/pygame/pygame/2.6.1/docs/licenses/LICENSE.ogg-vorbis.txt
+- LICENSE.opus.txt: https://raw.githubusercontent.com/pygame/pygame/2.6.1/docs/licenses/LICENSE.opus.txt
+- LICENSE.opusfile.txt: https://raw.githubusercontent.com/pygame/pygame/2.6.1/docs/licenses/LICENSE.opusfile.txt
+- LICENSE.png.txt: https://raw.githubusercontent.com/pygame/pygame/2.6.1/docs/licenses/LICENSE.png.txt
+- LICENSE.portmidi.txt: https://raw.githubusercontent.com/pygame/pygame/2.6.1/docs/licenses/LICENSE.portmidi.txt
+- LICENSE.sdl2.txt: https://raw.githubusercontent.com/pygame/pygame/2.6.1/docs/licenses/LICENSE.sdl2.txt
+- LICENSE.sdl2_image.txt: https://raw.githubusercontent.com/pygame/pygame/2.6.1/docs/licenses/LICENSE.sdl2_image.txt
+- LICENSE.sdl2_mixer.txt: https://raw.githubusercontent.com/pygame/pygame/2.6.1/docs/licenses/LICENSE.sdl2_mixer.txt
+- LICENSE.sdl_gfx.txt: https://raw.githubusercontent.com/pygame/pygame/2.6.1/docs/licenses/LICENSE.sdl_gfx.txt
+- LICENSE.sse2neon-h.txt: https://raw.githubusercontent.com/pygame/pygame/2.6.1/docs/licenses/LICENSE.sse2neon-h.txt
+- LICENSE.tiff.txt: https://raw.githubusercontent.com/pygame/pygame/2.6.1/docs/licenses/LICENSE.tiff.txt
+- LICENSE.webp.txt: https://raw.githubusercontent.com/pygame/pygame/2.6.1/docs/licenses/LICENSE.webp.txt
+- LICENSE.zlib.txt: https://raw.githubusercontent.com/pygame/pygame/2.6.1/docs/licenses/LICENSE.zlib.txt
