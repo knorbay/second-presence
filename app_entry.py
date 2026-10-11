@@ -1,4 +1,4 @@
-"""Finder entry point and an explicit diagnostic for the packaged game."""
+"""Desktop entry point and an explicit diagnostic for the packaged game."""
 import os
 from pathlib import Path
 import sys
@@ -28,9 +28,10 @@ def smoke_test(output, windowed=False):
               'default_save_directory': str(default_storage_root()),
               'audio_files': len(list((assets/'audio').glob('*.ogg')))
                              + len(list((assets/'audio').glob('*.mp3')))}
-    if report['frozen'] and sys.platform == 'darwin':
-        assert default_storage_root() == Path.home()/'Library/Application Support/Second Presence'
-        assert not default_storage_root().is_relative_to(Path(sys.executable).parent.parent)
+    if report['frozen']:
+        assert not default_storage_root().is_relative_to(Path(__file__).resolve().parent)
+        if sys.platform == 'darwin':
+            assert default_storage_root() == Path.home()/'Library/Application Support/Second Presence'
     with tempfile.TemporaryDirectory(prefix='second-presence-check-', dir=output.parent) as directory:
         game = Game(directory)
         assert game.phase == 'MAIN_MENU'
@@ -101,7 +102,9 @@ def main():
         return
     # A windowed app has no terminal. Keep unexpected failures inspectable.
     if getattr(sys, 'frozen', False) and sys.stderr is None:
-        log_root = Path.home()/'Library/Logs/Second Presence'
+        from game_storage import default_storage_root
+        log_root = (Path.home()/'Library/Logs/Second Presence' if sys.platform == 'darwin'
+                    else default_storage_root()/'logs')
         log_root.mkdir(parents=True, exist_ok=True)
         sys.stderr = (log_root/'game.log').open('a', encoding='utf-8', buffering=1)
         sys.stdout = sys.stderr

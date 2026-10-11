@@ -69,9 +69,17 @@ def restore_fields(obj,data,fields):
 
 
 def default_storage_root():
-    # A .app can live in a read-only disk image. Never write inside its bundle.
-    if sys.platform == 'darwin' and getattr(sys, 'frozen', False):
-        return Path.home()/'Library'/'Application Support'/'Second Presence'
+    # Installed applications may be read-only; keep saves outside the package.
+    if getattr(sys, 'frozen', False):
+        if sys.platform == 'darwin':
+            return Path.home()/'Library'/'Application Support'/'Second Presence'
+        if sys.platform == 'win32':
+            root = Path(os.environ.get('LOCALAPPDATA') or Path.home()/'AppData'/'Local')
+            return root/'Second Presence'
+        root = Path(os.environ.get('XDG_STATE_HOME') or Path.home()/'.local'/'state')
+        if not root.is_absolute():
+            root = Path.home()/'.local'/'state'
+        return root/'second-presence'
     return Path(__file__).resolve().parent/'.user_data'
 
 
