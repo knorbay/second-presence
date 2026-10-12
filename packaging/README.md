@@ -1,8 +1,25 @@
-# macOS build
+# Desktop builds
+
+
+## Windows and Linux
+
+The **Desktop release packages** GitHub Actions workflow builds on Windows x64 and Ubuntu 22.04 x86_64. It runs the game tests, freezes the application, archives it, extracts the download into an unrelated temporary directory, and checks both dummy SDL and an actual platform video surface (Windows / Linux X11 via Xvfb). Every bundled sound, both languages, all twelve task panels and save/load are checked before an artifact is accepted. This does not replace playtesting on different hardware.
+
+Build on the target platform with Python 3.13:
+
+```sh
+python -m pip install -r packaging/requirements-build.txt
+python -m PyInstaller --noconfirm packaging/desktop.spec
+python packaging/package_desktop.py
+```
+
+Linux validation needs Xvfb. The Linux package requires glibc 2.35+ and preserves executable permissions through tar.gz. The Windows executable must remain beside `_internal` and has no publisher certificate. Saves go into per-user storage outside the package.
+
+Artifacts: `Second-Presence-Windows.zip`, `Second-Presence-Linux.tar.gz`, plus platform validation reports. Upload to the existing 0.9 release after verification; adding platforms does not change the game version.
 
 ## Shareable universal package
 
-The newer sharing package is `Second-Presence-Mac-Gorev-Canavar.zip`. It contains one universal2 `.app` for Intel and Apple Silicon, declares macOS 11+, and preserves version 0.9. The actual library minima are audited per CPU, including the arm64-only modplug codec that is referenced only by the arm64 SDL mixer. Every Python extension and the executable have both CPU slices. Dependencies come from the official Pygame wheels rather than the earlier Homebrew SDL2-compat environment.
+The newer sharing package is `Second-Presence-Mac.zip`. It contains one universal2 `.app` for Intel and Apple Silicon, declares macOS 11+, and preserves version 0.9. The actual library minima are audited per CPU, including the arm64-only modplug codec that is referenced only by the arm64 SDL mixer. Every Python extension and the executable have both CPU slices. Dependencies come from the official Pygame wheels rather than the earlier Homebrew SDL2-compat environment.
 
 Build with a Python 3.13 universal2 interpreter on macOS:
 

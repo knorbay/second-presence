@@ -6,9 +6,17 @@ A top-down spaceship horror prototype. Keep the ship running through eight shift
 
 ![Second Presence](assets/branding/cover.png)
 
+![A brief walk through the ship — no creature or story spoilers](docs/teaser.gif)
+
 ## Play
 
-The downloadable Mac application is available on [itch.io](https://knorbay.itch.io/second-presence), free with optional donations, and from [GitHub Releases](https://github.com/knorbay/second-presence/releases). Download the ZIP, extract it in Finder, and move **Second Presence.app** into Applications. Python is not required for the packaged app.
+Download from [itch.io](https://knorbay.itch.io/second-presence), free with optional donations, or [GitHub Releases](https://github.com/knorbay/second-presence/releases). Python is not required for packaged builds.
+
+| Platform | Download and launch |
+| --- | --- |
+| Windows 10/11, x64 | Extract `Second-Presence-Windows.zip` completely; open **Second Presence.exe** inside the Second Presence folder. Keep `_internal` beside it. |
+| Linux x86_64, glibc 2.35+ | Extract `Second-Presence-Linux.tar.gz`; run **Second Presence** inside the Second Presence folder. Requires an X11 or Wayland desktop; built on Ubuntu 22.04. |
+| macOS 11+, Apple Silicon / Intel | Extract `Second-Presence-Mac.zip` in Finder and move **Second Presence.app** into Applications. |
 
 - Universal Mac build: Apple Silicon and Intel; macOS 11 or later.
 - Runtime tested on an Apple Silicon Mac. Intel binaries and dependencies are checked, but an Intel Mac has not been used for a runtime test.
@@ -53,13 +61,13 @@ python3 -m venv .venv
 .venv/bin/python main.py
 ```
 
-On Windows, use `.venv\Scripts\python` instead of `.venv/bin/python`. Only a macOS application is packaged for this release.
+On Windows, use `.venv\Scripts\python` instead of `.venv/bin/python`.
 
 ```sh
 SDL_VIDEODRIVER=dummy SDL_AUDIODRIVER=dummy .venv/bin/python -m unittest discover -s tests
 ```
 
-Source saves live in `.user_data/`; the Mac application uses `~/Library/Application Support/Second Presence`. Saves and settings are excluded from source control and distribution. Starting a new campaign keeps the previous slot as `previous_save.json`.
+Source saves live in `.user_data/`. Packaged builds use `~/Library/Application Support/Second Presence` on Mac, `%LOCALAPPDATA%/Second Presence` on Windows, and `$XDG_STATE_HOME/second-presence` (default `~/.local/state/second-presence`) on Linux. Saves and settings are excluded from source control and distribution. Starting a new campaign keeps the previous slot as `previous_save.json`.
 
 ## Türkçe
 
@@ -70,6 +78,8 @@ Her gün beş ana görev vardır. Altı arıza senaryosu görev önceliklerini, 
 **Oyna / R** yeni bir deneme oluşturur. **Yükle**, aynı görev planını ve yarım kalan işlemleri sürdürür. **Tab** görevleri ve öncelikleri gösterir. **E** panel açar; fare, oklar, 1/2/3 ve Space işlemi yapar. **Shift** koşma, **Ctrl** çömelme, **F** saklanma, **B** kapı, **G** ses kapsülü, **J** kayıtlar, **P** duraklatma, **L** dil, **M** ses içindir.
 
 Mac ZIP dosyasını Finder'da çıkarıp uygulamayı Applications klasörüne taşı. Paket Intel ve M serisini içerir; macOS 11 veya sonrası gerekir. Apple noterleştirmesi yoktur; ilk açılışta güvenlik uyarısı çıkabilir. Yukarıdaki Apple yönergesini yalnızca uygulamanın kaynağına güveniyorsan kullan.
+
+Windows’ta ZIP’i tamamen çıkarıp Second Presence klasöründeki **Second Presence.exe** dosyasını aç; `_internal` klasörünü yanında tut. Linux’ta tar.gz dosyasını çıkarıp aynı klasördeki **Second Presence** uygulamasını çalıştır (x86_64, glibc 2.35+). Python kurulumu gerekmez.
 
 ## Credits and development
 
