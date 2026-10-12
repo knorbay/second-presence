@@ -21,5 +21,6 @@ class DesktopStorageTests(unittest.TestCase):
             self.assertEqual(default_storage_root(), Path.home()/'.local'/'state'/'second-presence')
 
     def test_windows_default_when_environment_missing(self):
-        with patch.object(sys, 'frozen', True, create=True), patch.object(sys, 'platform', 'win32'), patch.dict(os.environ, {}, clear=True):
+        with patch.object(sys, 'frozen', True, create=True), patch.object(sys, 'platform', 'win32'), patch.dict(os.environ):
+            os.environ.pop('LOCALAPPDATA', None)
             self.assertEqual(default_storage_root(), Path.home()/'AppData'/'Local'/'Second Presence')
